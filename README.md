@@ -151,7 +151,7 @@ SELECT ingredients.name as fieldName, ingredients.sugar as fieldSugar, ingredien
 ## Release Notes
 
 
-**0.1 (2017-05-03)**
+**0.1 (2017-03-15)**
 
 * first release
 

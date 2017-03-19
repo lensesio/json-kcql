@@ -2,6 +2,7 @@ package com.datamountaineer.json.kcql
 
 import com.datamountaineer.json.kcql.JsonKcql._
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.node.{ObjectNode, TextNode}
 import org.scalatest.{Matchers, WordSpec}
 
 class JsonKcqTest extends WordSpec with Matchers {
@@ -12,6 +13,20 @@ class JsonKcqTest extends WordSpec with Matchers {
   }
 
   "AvroKcqlExtractor" should {
+    "read json" in {
+      val json =
+        """
+          |{
+          |  "f1":"v1",
+          |  "f2": 21
+          |}
+        """.stripMargin
+      JacksonJson.asJson(json) match {
+        case _:TextNode=> fail("")
+        case _:ObjectNode=> true shouldBe true
+      }
+    }
+
     "handle null payload" in {
       null.asInstanceOf[JsonNode].kcql("SELECT * FROM topic") shouldBe null.asInstanceOf[Any]
     }

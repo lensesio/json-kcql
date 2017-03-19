@@ -17,6 +17,7 @@ object JacksonJson {
 
   def toJson[T](value: T): String = mapper.writeValueAsString(value)
 
+  def asJson(value:String):JsonNode = mapper.readTree(value)
 
   def asJson[T](value: T): JsonNode = mapper.valueToTree(value)
 

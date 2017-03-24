@@ -35,7 +35,7 @@ allprojects {
         junitVersion = '4.12'
         kcqlVersion = '2.0.10'
         kafkaVersion = '0.10.2.0'
-        scalaLoggingVersion = '2.1.2'
+        scalaLoggingVersion = '3.5.0'
         mockitoVersion = '2.7.13'
         slf4jVersion = "1.7.7"
         jacksonVersion = "2.8.4"
@@ -57,7 +57,7 @@ allprojects {
     dependencies {
         compile "org.scala-lang:scala-library:$scala"
         compile "org.scala-lang:scala-compiler:$scala"
-        compile "com.typesafe.scala-logging:scala-logging-slf4j_$scalaMajorVersion:$scalaLoggingVersion"
+        compile "com.typesafe.scala-logging:scala-logging_$scalaMajorVersion:$scalaLoggingVersion"
 
         provided("com.datamountaineer:kcql:$kcqlVersion") {
             exclude group: "com.google.guava", module: "guava"

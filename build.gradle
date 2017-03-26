@@ -56,7 +56,6 @@ allprojects {
 
     dependencies {
         compile "org.scala-lang:scala-library:$scala"
-        compile "org.scala-lang:scala-compiler:$scala"
         compile "com.typesafe.scala-logging:scala-logging_$scalaMajorVersion:$scalaLoggingVersion"
 
         provided("com.datamountaineer:kcql:$kcqlVersion") {
@@ -74,7 +73,6 @@ allprojects {
         testCompile "org.apache.curator:curator-test:3.1.0"
         testCompile 'org.powermock:powermock-module-junit4:1.6.5'
         testCompile 'org.pegdown:pegdown:1.1.0'
-
 
     }
 

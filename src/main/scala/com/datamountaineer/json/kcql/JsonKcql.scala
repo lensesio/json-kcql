@@ -4,15 +4,15 @@ import com.datamountaineer.kcql.{Field, Kcql}
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node._
 
-import scala.collection.JavaConversions._
-import scala.collection.mutable.{ArrayBuffer, Map => MutableMap}
+import scala.collection.JavaConverters._
+import scala.collection.mutable.{ArrayBuffer}
 
 object JsonKcql {
 
   implicit class JsonKcqlConverter(val json: JsonNode) extends AnyVal {
     def kcql(query: String): JsonNode = kcql(Kcql.parse(query))
 
-    def kcql(query: Kcql): JsonNode = kcql(query.getFields, !query.hasRetainStructure)
+    def kcql(query: Kcql): JsonNode = kcql(query.getFields.asScala, !query.hasRetainStructure)
 
     def kcql()(implicit kcqlContext: KcqlContext): JsonNode = {
       from(json, Vector.empty)
@@ -61,7 +61,7 @@ object JsonKcql {
             case node: ObjectNode =>
 
               val fieldsParentMap = fields.foldLeft(Map.empty[String, ArrayBuffer[String]]) { case (map, f) =>
-                val key = Option(f.getParentFields).map(_.mkString(".")).getOrElse("")
+                val key = Option(f.getParentFields.asScala).map(_.mkString(".")).getOrElse("")
                 val buffer = map.getOrElse(key, ArrayBuffer.empty[String])
                 buffer += f.getName
                 map + (key -> buffer)
@@ -86,11 +86,11 @@ object JsonKcql {
                   if (!f.hasParents) {
                     Some(node)
                   } else {
-                    Option(f.getParentFields).flatMap(p => path(p))
+                    Option(f.getParentFields.asScala).flatMap(p => path(p))
                   }
                 }
 
-                val fieldPath = Option(f.getParentFields).map(_.mkString(".") + "." + f.getName).getOrElse(f.getName)
+                val fieldPath = Option(f.getParentFields.asScala).map(_.mkString(".") + "." + f.getName).getOrElse(f.getName)
 
                 sourceNode match {
                   case None =>
@@ -100,8 +100,8 @@ object JsonKcql {
                         addNode(childNode, newNode, getNextFieldName(f.getAlias), fieldPath)
                       }
                     } else {
-                      val key = Option(f.getParentFields).map(_.mkString(".")).getOrElse("")
-                      on.fieldNames().filter { name =>
+                      val key = Option(f.getParentFields.asScala).map(_.mkString(".")).getOrElse("")
+                      on.fieldNames().asScala.filter { name =>
                         fieldsParentMap.get(key).forall(!_.contains(name))
                       }.foreach { name =>
                         addNode(on.get(name), newNode, getNextFieldName(name), fieldPath)
@@ -172,7 +172,7 @@ object JsonKcql {
           newNode.set(parent, from(node, parents :+ parent))
         }
         case Left(parent) if parent.getName == "*" =>
-          node.fieldNames().withFilter { f =>
+          node.fieldNames().asScala.withFilter { f =>
             !fields.exists {
               case Left(field) if field.getName == f => true
               case _ => false
@@ -185,7 +185,7 @@ object JsonKcql {
       }
     }
     else {
-      node.fieldNames()
+      node.fieldNames().asScala
         .foreach { field =>
           newNode.set(field, from(node.get(field), parents :+ field))
         }
@@ -201,8 +201,8 @@ object JsonKcql {
       if (fields.size == 1 && fields.head.isLeft && fields.head.left.get.getName == "*") {
         array
       } else {
-        val newElements = array.elements().map(from(_, parents)).toList
-        new ArrayNode(JsonNodeFactory.instance, newElements)
+        val newElements = array.elements().asScala.map(from(_, parents)).toList
+        new ArrayNode(JsonNodeFactory.instance, newElements.asJava)
       }
     }
   }

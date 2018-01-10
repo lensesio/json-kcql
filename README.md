@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Landoop/json-kcql.svg?branch=master)](https://travis-ci.org/Landoop/json-kcql)
+
 # json-kcql
 This is a small utility library allowing you to translate the shape of a JSON document.
 Let's say we have the following json (A description of a Pizza):

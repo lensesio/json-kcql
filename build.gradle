@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         classpath 'com.github.maiflai:gradle-scalatest:0.14'
         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3'
-        classpath 'net.researchgate:gradle-release:2.3.4'
+        classpath 'net.researchgate:gradle-release:2.6.0'
     }
 }
 
@@ -28,14 +28,14 @@ allprojects {
     targetCompatibility = 1.8
 
     ext {
-        scalaMajorVersion = '2.11'
-        scala = '2.11.7'
-        scalaCheck = '1.11.1'
-        scalaTest = '2.2.6'
+        scalaMajorVersion = '2.12'
+        scala = '2.12.3'
+        scalaCheck = '1.13.5'
+        scalaTest = '3.0.4'
         junitVersion = '4.12'
-        kcqlVersion = '2.0.10'
-        kafkaVersion = '0.10.2.0'
-        scalaLoggingVersion = '3.5.0'
+        kcqlVersion = '2.4.0'
+        kafkaVersion = '1.0.0'
+        scalaLoggingVersion = '3.7.1'
         mockitoVersion = '2.7.13'
         slf4jVersion = "1.7.7"
         jacksonVersion = "2.8.4"
@@ -45,7 +45,6 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
-        maven { url "http://packages.confluent.io/maven/" }
         maven { url "http://repo.typesafe.com/typesafe/releases/" }
     }
 

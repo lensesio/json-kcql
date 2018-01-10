@@ -37,7 +37,6 @@ allprojects {
         scalaTest = '3.0.4'
         junitVersion = '4.12'
         kcqlVersion = '2.4.0'
-        kafkaVersion = '1.0.0'
         scalaLoggingVersion = '3.7.1'
         mockitoVersion = '2.7.13'
         slf4jVersion = "1.7.7"

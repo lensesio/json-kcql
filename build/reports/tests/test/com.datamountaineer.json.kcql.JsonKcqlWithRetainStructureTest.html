@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+      <head>
+        <title>ScalaTest Suite com.datamountaineer.json.kcql.JsonKcqlWithRetainStructureTest Results</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Expires" content="-1"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <link href="css/styles.css" rel="stylesheet"/>
+        
+        <script type="text/javascript">
+          function toggleDetails(contentId, linkId) {
+  var ele = document.getElementById(contentId);
+  var text = document.getElementById(linkId);
+  if(ele.style.display == "block") {
+    ele.style.display = "none";
+    text.innerHTML = "(Show Details)";
+  }
+  else {
+    ele.style.display = "block";
+    text.innerHTML = "(Hide Details)";
+  }
+}
+function hideOpenInNewTabIfRequired() {
+  if (top === self) { document.getElementById('printlink').style.display = 'none'; }
+}
+
+        </script>
+      </head>
+      <body class="specification">
+        <div id="suite_header_name">JsonKcqlWithRetainStructureTest</div>
+        <div id="suite_header_statistic_passed">
+          Tests: total 18, succeeded 18, failed 0, canceled 0, ignored 0, pending 0
+        </div>
+        <div id="96ea2d47-352f-489b-b74d-d6b6ffc6bdbe" class="scope" style="margin-left: 0px;">
+      AvroKcqlExtractor
+    </div><div id="c02728d2-7632-49ae-9e3d-6ec4cd7a300f" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle null payload</dt>
+      </dl>
+    </div><div id="709ece42-8a3d-497e-bb6b-80474504e92c" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle Int node</dt>
+      </dl>
+    </div><div id="71d17815-a2f2-4dd3-9b89-1938e624fa67" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should throw an exception when trying to select field of an Int node</dt>
+      </dl>
+    </div><div id="d85532a3-1a02-4aab-b065-ecdabac1b2c0" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT * FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="038e0f38-851c-47a0-ba25-24e873699d7f" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT *, name as fieldName FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="a45c379f-a222-4995-98bf-f462273d8cb7" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT *, ingredients as stuff FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="44df5d68-7bf3-4173-b996-011dc57b5d49" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT name as fieldName, * FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="2c6d273b-524b-4520-a487-8f9b57d6270f" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT vegan FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="8492aa81-7a47-44d8-aabc-b1bd58e02a01" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT vegan as veganA FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="d3126506-a99d-4030-9c4c-84941a2a2d65" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT ingredients.name FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="ea826707-1fea-49f6-81d6-df2aca957a95" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT ingredients.name, ingredients.sugar FROM topic' for a record withstructure</dt>
+      </dl>
+    </div><div id="7cf0fe1c-3064-4942-a4b1-890384cf67a4" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT ingredients.name as fieldName, ingredients.sugar as fieldSugar FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="c0c3c0ae-3bdd-4ad1-a695-a1aa573d431f" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT ingredients.*,ingredients.name as fieldName, ingredients.sugar as fieldSugar FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="c3db3995-9af2-4e74-a9bd-d195221886e2" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT ingredients.name as fieldName,ingredients.*, ingredients.sugar as fieldSugar FROM topic' for a record</dt>
+      </dl>
+    </div><div id="3d73ec56-6b26-4459-904a-663525fab884" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT ingredients.name as fieldName, ingredients.sugar as fieldSugar, ingredients.* FROM topic' for a record</dt>
+      </dl>
+    </div><div id="0369d8f2-938d-4db2-a347-e7bfeddb7046" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT name, ingredients.name as fieldName, ingredients.sugar as fieldSugar, ingredients.* FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="f14b25c8-6f4e-42dd-8602-8dde95882010" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT name, ingredients.name as fieldName, ingredients.sugar as fieldSugar, ingredients.*, calories as cals FROM topic withstructure' for a record</dt>
+      </dl>
+    </div><div id="01c800cc-f002-4545-8ab7-0ac2a771fcd8" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should handle 'SELECT name, ingredients.name as fieldName, calories as cals,ingredients.sugar as fieldSugar, ingredients.* FROM topic withstructure' for a record</dt>
+      </dl>
+    </div>
+        <table id="suite_footer">
+          <tr id="suite_footer_id">
+            <td id="suite_footer_id_label_passed">Suite ID</td>
+            <td id="suite_footer_id_value" colspan="5">com.datamountaineer.json.kcql.JsonKcqlWithRetainStructureTest</td>
+          </tr>
+          <tr id="suite_footer_class">
+            <td id="suite_footer_class_label_passed">Class name</td>
+            <td id="suite_footer_class_value" colspan="5">com.datamountaineer.json.kcql.JsonKcqlWithRetainStructureTest</td>
+          </tr>
+          <tr id="suite_footer_duration">
+            <td id="suite_footer_duration_label_passed">Total duration</td>
+            <td id="suite_footer_duration_value" colspan="2">
+              633 milliseconds
+              </td>
+          </tr>
+        </table>
+           <div id="printlink">(<a href="com.datamountaineer.json.kcql.JsonKcqlWithRetainStructureTest.html" target="_blank">Open JsonKcqlWithRetainStructureTest in new tab</a>)</div>
+      </body>
+      <script type="text/javascript">
+        hideOpenInNewTabIfRequired();
+      </script>
+    </html>
